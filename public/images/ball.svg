@@ -1,0 +1,16 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#111111"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Arial Black" font-size="120" fill="#F5A900" opacity="0.08" font-weight="900">SR</text>
+  <g transform="translate(100,80)">
+    <circle cx="100" cy="130" r="100" fill="none" stroke="#cc2222" stroke-width="3"/>
+    <path d="M100 30 C100 30, 60 80, 60 130 C60 180, 100 230, 100 230" fill="none" stroke="#cc3333" stroke-width="2"/>
+    <path d="M100 30 C100 30, 140 80, 140 130 C140 180, 100 230, 100 230" fill="none" stroke="#cc3333" stroke-width="2"/>
+    <path d="M5 110 L195 110" stroke="#cc3333" stroke-width="2" opacity="0.7"/>
+    <path d="M20 80 L180 80" stroke="#cc3333" stroke-width="1" opacity="0.4"/>
+    <path d="M20 140 L180 140" stroke="#cc3333" stroke-width="1" opacity="0.4"/>
+    <path d="M75 35 C60 45, 55 55, 60 65" fill="none" stroke="#F5A900" stroke-width="2.5"/>
+    <path d="M125 35 C140 45, 145 55, 140 65" fill="none" stroke="#F5A900" stroke-width="2.5"/>
+  </g>
+  <text x="200" y="400" text-anchor="middle" font-family="Arial" font-size="16" fill="#929292" letter-spacing="4">CRICKET BALL</text>
+  <rect x="160" y="415" width="80" height="2" fill="#F5A900" opacity="0.5"/>
+</svg>

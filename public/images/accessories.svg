@@ -1,0 +1,13 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#111111"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Arial Black" font-size="120" fill="#F5A900" opacity="0.08" font-weight="900">SR</text>
+  <g transform="translate(80,100)">
+    <rect x="10" y="10" width="100" height="160" rx="6" fill="none" stroke="#F5A900" stroke-width="2.5"/>
+    <circle cx="60" cy="80" r="25" fill="none" stroke="#F5A900" stroke-width="2"/>
+    <rect x="130" y="10" width="100" height="60" rx="6" fill="none" stroke="#929292" stroke-width="2"/>
+    <rect x="130" y="80" width="100" height="60" rx="6" fill="none" stroke="#929292" stroke-width="2"/>
+    <rect x="130" y="150" width="100" height="30" rx="6" fill="none" stroke="#F5A900" stroke-width="2"/>
+  </g>
+  <text x="200" y="400" text-anchor="middle" font-family="Arial" font-size="16" fill="#929292" letter-spacing="4">ACCESSORIES</text>
+  <rect x="158" y="415" width="84" height="2" fill="#F5A900" opacity="0.5"/>
+</svg>

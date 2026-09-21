@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#111111"/>
+  <text x="200" y="220" text-anchor="middle" font-family="Arial Black" font-size="120" fill="#F5A900" opacity="0.08" font-weight="900">SR</text>
+  <g transform="translate(140,40)">
+    <rect x="20" y="10" width="80" height="280" rx="18" fill="none" stroke="#c8a040" stroke-width="3"/>
+    <line x1="30" y1="50" x2="90" y2="50" stroke="#c8a040" stroke-width="1" opacity="0.4"/>
+    <line x1="30" y1="80" x2="90" y2="80" stroke="#c8a040" stroke-width="1" opacity="0.4"/>
+    <line x1="30" y1="110" x2="90" y2="110" stroke="#c8a040" stroke-width="1" opacity="0.4"/>
+    <line x1="30" y1="140" x2="90" y2="140" stroke="#c8a040" stroke-width="1" opacity="0.4"/>
+    <line x1="30" y1="170" x2="90" y2="170" stroke="#c8a040" stroke-width="1" opacity="0.4"/>
+    <line x1="30" y1="200" x2="90" y2="200" stroke="#c8a040" stroke-width="1" opacity="0.4"/>
+    <rect x="48" y="288" width="24" height="100" rx="10" fill="none" stroke="#929292" stroke-width="2.5"/>
+    <line x1="35" y1="290" x2="85" y2="290" stroke="#F5A900" stroke-width="2"/>
+  </g>
+  <text x="200" y="420" text-anchor="middle" font-family="Arial" font-size="16" fill="#929292" letter-spacing="4">KASHMIR WILLOW BAT</text>
+  <rect x="118" y="435" width="164" height="2" fill="#F5A900" opacity="0.5"/>
+</svg>

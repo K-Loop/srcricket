@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+/* ─── Tailwind v4 Theme Tokens ───────────────────────── */
+@theme {
+  --color-gold: #F5A900;
+  --color-gold-bright: #FFB800;
+  --color-orange: #FF6A00;
+  --color-bg: #070707;
+  --color-surface: #111111;
+  --color-surface-2: #181818;
+  --color-border: #292929;
+  --color-text: #F5F5F5;
+  --color-muted: #929292;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-hero: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ─── CSS Variables for Custom Direct Access ─────────── */
+:root {
+  --gold: #F5A900;
+  --gold-bright: #FFB800;
+  --orange: #FF6A00;
+  --bg: #070707;
+  --surface: #111111;
+  --surface-2: #181818;
+  --border: #292929;
+  --text: #F5F5F5;
+  --muted: #929292;
+  --radius-sm: 4px;
+  --radius: 8px;
+}
+
+/* ─── Base Layer ─────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ─── Typography & Utilities ─────────────────────────── */
+.font-display { font-family: 'Barlow Condensed', sans-serif; }
+.font-hero    { font-family: 'Bebas Neue', sans-serif; }
+.font-body    { font-family: 'Inter', sans-serif; }
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ─── Selection & Focus ──────────────────────────────── */
+::selection { background: var(--gold); color: var(--bg); }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ─── Gold Gradient Text ─────────────────────────────── */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, var(--orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── SR Watermark ───────────────────────────────────── */
+.sr-watermark {
+  font-family: 'Bebas Neue', sans-serif;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 169, 0, 0.08);
+  letter-spacing: -0.02em;
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* ─── Product Card ───────────────────────────────────── */
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.product-card:hover {
+  border-color: rgba(245, 169, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(245,169,0,0.1);
+}
+.product-card .product-image-wrap { overflow: hidden; }
+.product-card .product-image-wrap img {
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.07);
+}
+
+/* ─── Button Base ────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+  color: var(--bg);
+  padding: 14px 28px;
+  font-size: 0.9rem;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-bright) 0%, var(--orange) 100%);
+  box-shadow: 0 8px 24px rgba(245,169,0,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  padding: 13px 28px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ─── Section Label ──────────────────────────────────── */
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ─── Navbar ─────────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
+}
+.navbar.scrolled {
+  background: rgba(7, 7, 7, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ─── Hero Background ────────────────────────────────── */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(245,169,0,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 20% 60%, rgba(255,106,0,0.05) 0%, transparent 50%),
+    var(--bg);
+}
+
+/* ─── Category Rail ──────────────────────────────────── */
+.category-rail {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.category-rail::-webkit-scrollbar { display: none; }
+
+/* ─── Gold Sweep Button ──────────────────────────────── */
+@keyframes gold-sweep {
+  0%   { left: -100%; }
+  100% { left: 200%; }
+}
+.gold-sweep-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: gold-sweep 2.5s ease-in-out infinite;
+}
+.gold-sweep-btn { position: relative; overflow: hidden; }
+
+/* ─── Badges ─────────────────────────────────────────── */
+.badge-gold {
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  color: var(--bg);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+}
+.badge-new {
+  background: var(--surface-2);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+}
+
+/* ─── Drawer & Layout Safety ─────────────────────────── */
+.cart-drawer-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+}
+.cart-drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(420px, 100vw);
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  z-index: 201;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
