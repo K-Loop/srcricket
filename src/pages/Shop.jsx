@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { SlidersHorizontal, ChevronDown, X } from 'lucide-react';
-import { products, categories } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import ProductGrid from '../components/shop/ProductCard';
 import { SectionHeading } from '../components/ui/UI';
 import TrustStrip from '../components/home/TrustStrip';
@@ -15,6 +15,7 @@ const sortOptions = [
 ];
 
 export default function Shop() {
+  const { products, categories } = useProducts();
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get('search') || '';
   const [activeCategory, setActiveCategory] = useState('all');

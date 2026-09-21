@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ShoppingCart, ArrowRight, ShieldCheck, Sparkles, Check } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
-import { products, formatPrice } from '../../data/products';
+import { useProducts } from '../../context/ProductContext';
+import { formatPrice } from '../../data/products';
 import { SectionLabel } from '../ui/UI';
-
-const featuredProduct = products.find(p => p.id === 'bat-001') || products[0];
 
 const keyFeatures = [
   'Grade 1 English Willow (8-11 Straight Grains)',
@@ -19,6 +18,10 @@ export default function FeaturedProduct() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
   const { addItem } = useCart();
+  const { products } = useProducts();
+  const featuredProduct = products.find(p => p.id === 'bat-001') || products[0];
+
+  if (!featuredProduct) return null;
 
   return (
     <section

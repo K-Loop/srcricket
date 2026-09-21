@@ -23,6 +23,7 @@ const navLinks = [
     ],
   },
   { label: 'Bats', to: '/category/Bats' },
+  { label: 'Manufacturing', to: '/about' },
   { label: 'Kits', to: '/category/Kits' },
   { label: 'Protection', to: '/category/Pads' },
   { label: 'Accessories', to: '/category/Accessories' },
@@ -180,7 +181,24 @@ export default function Navbar() {
             </nav>
 
             {/* Right Icons */}
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1.5">
+              {/* Admin Portal Button */}
+              <Link
+                to="/admin"
+                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs font-bold transition-all"
+                style={{
+                  background: 'rgba(245,169,0,0.12)',
+                  color: 'var(--gold)',
+                  border: '1px solid rgba(245,169,0,0.25)',
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                }}
+                title="Open Factory Admin Dashboard"
+              >
+                <span>Admin</span>
+              </Link>
+
               {/* Search */}
               <button
                 id="nav-search-btn"
@@ -194,17 +212,18 @@ export default function Navbar() {
                 <Search size={18} />
               </button>
 
-              {/* Account (visual only) */}
-              <button
+              {/* Account -> Admin Link */}
+              <Link
+                to="/admin"
                 id="nav-account-btn"
                 className="p-2.5 transition-colors rounded hidden sm:flex"
                 style={{ color: 'var(--muted)' }}
-                aria-label="Account"
+                aria-label="Admin Account"
                 onMouseEnter={e => e.currentTarget.style.color = 'var(--gold)'}
                 onMouseLeave={e => e.currentTarget.style.color = 'var(--muted)'}
               >
                 <User size={18} />
-              </button>
+              </Link>
 
               {/* Cart */}
               <button

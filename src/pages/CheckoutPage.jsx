@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CreditCard, MapPin, Truck, ShieldCheck, ChevronRight, Check, Smartphone } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { useProducts } from '../context/ProductContext';
 import { formatPrice } from '../data/products';
 
 const STEPS = ['Contact', 'Address', 'Payment'];
@@ -17,6 +18,7 @@ const paymentMethods = [
 export default function CheckoutPage() {
   const navigate = useNavigate();
   const { items, total, clearCart } = useCart();
+  const { addOrder } = useProducts();
   const [step, setStep] = useState(0);
   const [processing, setProcessing] = useState(false);
   const [form, setForm] = useState({
@@ -31,14 +33,37 @@ export default function CheckoutPage() {
 
   const handlePay = () => {
     setProcessing(true);
+    const orderId = `SR-${Date.now().toString().slice(-8)}`;
+    const fullAddress = `${form.address}, ${form.city}, ${form.state} - ${form.pincode}`;
+
     setTimeout(() => {
+      // Save order to store context & localStorage
+      addOrder({
+        orderId,
+        customer: {
+          name: form.name || 'Valued Cricketer',
+          email: form.email || 'customer@cricket.com',
+          phone: form.phone || '+91 98765 00000',
+          address: form.address,
+          city: form.city,
+          state: form.state,
+          pincode: form.pincode,
+        },
+        items: [...items],
+        total,
+        paymentMethod: paymentMethods.find(m => m.id === form.paymentMethod)?.label || 'Online Payment',
+        paymentStatus: 'Paid',
+        status: 'In Factory Production',
+        trackingNotes: 'Order received at workshop. Cleft inspection & pre-dispatch packaging queued.',
+      });
+
       clearCart();
       navigate('/order-success', {
         state: {
-          orderId: `SR${Date.now().toString().slice(-8)}`,
+          orderId,
           items,
           total,
-          address: `${form.address}, ${form.city}, ${form.state} - ${form.pincode}`,
+          address: fullAddress,
         },
       });
     }, 2800);

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { SectionHeading } from '../ui/UI';
-import { bestsellers } from '../../data/products';
+import { useProducts } from '../../context/ProductContext';
 import ProductGrid from '../shop/ProductCard';
 
 export default function Bestsellers() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
+  const { bestsellers } = useProducts();
 
   return (
     <section

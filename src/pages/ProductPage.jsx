@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Heart, Star, ChevronRight, Plus, Minus, ArrowRight, Check } from 'lucide-react';
-import { getProductById, getRelatedProducts, formatPrice } from '../data/products';
+import { formatPrice } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductGrid from '../components/shop/ProductCard';
@@ -12,6 +13,7 @@ import TrustStrip from '../components/home/TrustStrip';
 export default function ProductPage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { getProductById, getRelatedProducts } = useProducts();
   const product = getProductById(id);
   const { addItem } = useCart();
   const { toggle, isWished } = useWishlist();

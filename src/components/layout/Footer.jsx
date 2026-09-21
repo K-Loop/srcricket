@@ -28,9 +28,10 @@ const helpLinks = [
 ];
 
 const companyLinks = [
-  { label: 'About SR Sports', href: '#' },
-  { label: 'Our Story', href: '#' },
-  { label: 'Manufacturing', href: '#' },
+  { label: 'About SR Sports', to: '/about' },
+  { label: 'Own Manufacturing & Workshop', to: '/about' },
+  { label: 'Custom Bat Crafting', to: '/about#custom-bat-builder' },
+  { label: 'Admin Management Portal', to: '/admin' },
 ];
 
 export default function Footer() {
@@ -224,8 +225,8 @@ export default function Footer() {
             <ul className="flex flex-col gap-2.5">
               {companyLinks.map(link => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.to}
                     style={{
                       color: 'var(--muted)',
                       fontSize: '0.875rem',
@@ -236,7 +237,7 @@ export default function Footer() {
                     onMouseLeave={e => e.currentTarget.style.color = 'var(--muted)'}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>

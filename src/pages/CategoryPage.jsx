@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getProductsByCategory } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import ProductGrid from '../components/shop/ProductCard';
 import { SectionHeading } from '../components/ui/UI';
 import TrustStrip from '../components/home/TrustStrip';
@@ -8,6 +8,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CategoryPage() {
   const { category } = useParams();
+  const { getProductsByCategory } = useProducts();
   const products = getProductsByCategory(category);
 
   return (

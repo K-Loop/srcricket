@@ -5,6 +5,7 @@ import { X, ArrowRight } from 'lucide-react';
 const mobileLinks = [
   { label: 'Home', to: '/' },
   { label: 'Shop All Gear', to: '/shop' },
+  { label: 'Own Manufacturing / About Us', to: '/about' },
   { label: 'Cricket Bats', to: '/category/Bats' },
   { label: 'Batting Pads', to: '/category/Pads' },
   { label: 'Batting Gloves', to: '/category/Gloves' },
@@ -13,6 +14,7 @@ const mobileLinks = [
   { label: 'Cricket Balls', to: '/category/Balls' },
   { label: 'Complete Kits', to: '/category/Kits' },
   { label: 'Accessories', to: '/category/Accessories' },
+  { label: '⚡ Admin Dashboard', to: '/admin' },
 ];
 
 export default function MobileMenu({ onClose, openCart }) {
